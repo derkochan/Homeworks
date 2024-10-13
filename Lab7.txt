@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	char c;
+	printf("Введите цифру или букву:");
+	scanf_s("%c", &c);//считывание с консоли
+	switch (c)
+	{
+	case '1':case '2':case '3':case '4':case '5':case '6':case '7':case '8':case '9':
+		printf("Введена цифра.\n");
+		break;
+	default:
+		printf("Буква\n");
+	}
+
+
+	// Задание 2
+	char i;
+	float a, b;
+	printf("Введите первое числo \n");
+	scanf_s("%f", &a);
+	printf("Введите знак \n");
+	scanf(" %c", &i);
+	printf("Введите второе числo \n");
+	scanf_s("%f", &b);
+
+
+	switch (i)
+	{
+	case '+':
+		printf("%lf\n", a + b);
+		break;
+	case '-':
+		printf("%lf\n", a - b);
+		break;
+	case '*':
+		printf("%lf\n", a * b);
+		break;
+	case '/':
+		printf("%lf\n", a / b);
+		break;
+	case '^':
+		printf("%lf\n", pow(a, b));
+		break;
+	}
+}
