@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <locale.h>
+void name(int storona) 
+{
+    if (storona == 3) 
+    {
+        printf("Прямоугольный треугольник — это треугольник, у которого один угол прямой (равен 90)\n");
+    }
+}
+
+float area_triangle(float a, float b) 
+{
+    return (a * b) / 2; // Площадь = (Основание * Высота) / 2
+}
+
+void draw_triangle(int height) 
+{
+    for (int i = 1; i <= height; i++) 
+    {
+        for (int j = 0; j < height; j++) 
+        {
+            if (j < i) {
+                printf("*");
+            }
+            else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int vybor;
+
+    float osn, vysota;
+    setlocale(LC_ALL, "RUS");
+    printf("Введите длины катетов прямоугольного треугольника:\n");
+    printf("Основание (a): ");
+    scanf_s("%f", &osn);
+    printf("Высота (b): ");
+    scanf_s("%f", &vysota);
+
+    int storona = 3;
+
+    // Основное меню
+    while (1) {
+        setlocale(LC_ALL, "RUS");
+        printf("\nВыберите операцию:\n");
+        printf("1) Рассчитать площадь прямоугольного треугольника\n");
+        printf("2) Вывести определение прямоугольного треугольника\n");
+        printf("3) Нарисовать прямоугольный треугольник\n");
+        printf("0) Выход\n");
+        printf("Ваш выбор: ");
+        scanf_s("%d", &vybor);
+
+        switch (vybor) {
+        case 1: {
+            printf("Площадь прямоугольного треугольника: %.2f\n", area_triangle(osn, vysota));
+            break;
+        }
+        case 2: {
+            name(storona);
+            break;
+        }
+        case 3: {
+            draw_triangle((int)vysota);
+            break;
+        }
+        case 0: {
+            printf("Выход из программы\n");
+            return 0;
+        }
+        default:
+            printf("Неверный выбор\n");
+        }
+    }
+
+    return 0;
+}
