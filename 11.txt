@@ -81,3 +81,26 @@ int main(void)
     printf("Количество положительных: %d\n", positiveCount);
     printf("Количество отрицательных: %d\n", negativeCount);
     printf("Среднее положительных: %.2f\n", averagePositive);
+    // Задание 3
+    int n = 10;
+
+    double array[N]; 
+    printf("Введите элементы массива:\n");
+    for (int u = 0; u < n; u++) {
+        scanf("%lf", &array[u]);
+    }
+    int min_index = 0;
+    for (int u = 1; u < n; u++) {
+        if (fabs(array[u]) < fabs(array[min_index])) 
+        {
+            min_index = u;
+        }
+    }
+    double suma = 0;
+    for (int u = min_index + 1; u < n; u++) 
+    {
+        suma += array[u];
+    }
+
+    printf("Сумма элементов после минимального по модулю элемента: %.2f\n", suma);
+}
